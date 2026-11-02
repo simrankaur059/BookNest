@@ -59,38 +59,6 @@
 
 ---
 
-## 🏗 Architecture & Project Structure
-
-The project follows a clean **Model-View-Controller (MVC)** and modular design:
-
-```
-BookNest/
-├── CMakeLists.txt              # Cross-platform build configuration
-├── README.md                   # Full documentation & setup guide
-├── include/
-│   ├── Models.h                # Data structures: Student, Book, IssueRecord, ReadingListItem
-│   ├── Theme.h                 # Colors, typography, and complete Qt style rules
-│   ├── DatabaseManager.h       # SQLite singleton interface with prepared queries
-│   ├── CoverArtGenerator.h     # High-resolution procedural book cover and logo renderer
-│   ├── BookCardWidget.h        # Interactive rounded card for catalog grids
-│   ├── BookDetailDialog.h      # Modal dialog with comprehensive book metadata & synopsis
-│   ├── SidebarWidget.h         # Collapsible sidebar with navigation and circulation drawers
-│   ├── LoginDialog.h           # Welcome and student login/registration dialog
-│   └── MainWindow.h            # Central coordinator connecting views, search, and events
-├── src/
-│   ├── main.cpp                # Application entrypoint and database lifecycle
-│   ├── DatabaseManager.cpp     # SQLite schema creation, initial book seeding, and transactions
-│   ├── CoverArtGenerator.cpp   # Vector QPainter cover rendering engine
-│   ├── BookCardWidget.cpp      # Card layout, state updates, and button signals
-│   ├── BookDetailDialog.cpp    # Overview modal, inventory progress bar, and borrow flow
-│   ├── SidebarWidget.cpp       # Navigation buttons, collapsible drawers, and profile card
-│   ├── LoginDialog.cpp         # Login input validation and profile switching
-│   └── MainWindow.cpp          # Top bar, stacked views, real-time search, and feedback toasts
-└── tests/
-    └── test_main.cpp           # Automated unit and integration test suite
-```
-
----
 
 ## 💾 Database Schema (SQLite)
 
@@ -161,37 +129,7 @@ To build and run **BookNest**, ensure the following tools are installed:
 
 ---
 
-## 🚀 Building & Running the Application
 
-### Option A: Using Command Prompt / PowerShell (MinGW / MSYS2 / GCC)
-
-```powershell
-# 1. Clone or navigate to the BookNest project folder
-cd C:\Users\User\.gemini\antigravity-ide\scratch\BookNest
-
-# 2. Configure CMake with Ninja (Release mode)
-cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
-
-# 3. Compile the executable
-ninja -C build
-
-# 4. Launch the application!
-.\build\BookNest.exe
-```
-
-### Option B: Using Qt Creator
-1. Open **Qt Creator**.
-2. Click **Open File or Project** and select `BookNest/CMakeLists.txt`.
-3. Choose your configured Qt kit (e.g. Qt 6.x MinGW / MSVC).
-4. Click the green **Run** button (or press `Ctrl + R`).
-
-### Option C: Using Visual Studio
-1. Open Visual Studio and choose **Open a local folder**.
-2. Select the `BookNest` directory.
-3. Visual Studio will automatically detect `CMakeLists.txt`.
-4. Select `BookNest.exe` as the startup item and press `F5` to build and debug.
-
----
 
 ## 🧭 Feature Walkthrough
 
@@ -251,20 +189,6 @@ This project demonstrates several essential Software Engineering design patterns
 
 ---
 
-## 🎓 College Viva & Presentation Tips
 
-When presenting **BookNest** for college examinations or project evaluations:
-
-1. **Demonstrate Data Persistence**:
-   - Issue a book, close the application, re-open it, and log back in as the same student. Show the evaluators that the borrowed book remains in the **Currently Issued** sidebar drawer with updated due-date calculations.
-2. **Demonstrate Constraint Validation**:
-   - Try to borrow the same book twice: show that the application alerts the student that they already possess the title.
-   - Show that when all copies are borrowed, the **Borrow** button changes to disabled with an *"Out of Stock"* badge.
-3. **Highlight Modular Architecture**:
-   - Explain how `DatabaseManager` isolates SQL logic from GUI widgets, ensuring maintainability and easy migration to other SQL databases (e.g., PostgreSQL or MySQL).
-4. **Showcase Visual Polish**:
-   - Point out the warm cream/forest-green color palette, procedural 3D book cover rendering, and collapsible circulation drawers designed specifically for modern desktop ergonomics.
-
----
 
 *Developed with C++17 & Qt for Academic & College Mini-Project Demonstrations.*
